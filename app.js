@@ -7,7 +7,11 @@ const fileRoutes = require('./routes/fileRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow requests from any origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods
+  credentials: false, // No need for credentials if origin is '*'
+}));
 app.use(express.json());
 
 // Routes
