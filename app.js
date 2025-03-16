@@ -17,6 +17,11 @@ app.use(express.json());
 // Routes
 app.use('/api/files', fileRoutes);
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend is running' });
+});
+
 // Database connection
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
